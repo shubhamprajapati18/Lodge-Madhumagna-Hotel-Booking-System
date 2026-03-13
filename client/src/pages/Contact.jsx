@@ -3,7 +3,7 @@ import PageHeader from "../components/common/PageHeader";
 import SectionTitle from "../components/common/SectionTitle";
 import Button from "../components/common/Button";
 import supabase from "../supabaseClient";
-import headerImage from "../assets/A3.png";
+import headerImage from "../assets/hero.png";
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
