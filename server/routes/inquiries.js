@@ -9,12 +9,8 @@ const { v4: uuidv4 } = require("uuid");
 // @access  Public
 router.post("/", async (req, res) => {
   try {
-    const { name, email, phone, eventType, guests, message } = req.body;
+    const { name, email, phone, message } = req.body;
 
-    // Default guest count to 0 if left blank or NaN
-    const parsedGuests = guests && !isNaN(guests) ? Number(guests) : 0;
-
-    // We send `date` as today's date so it matches the db schema, but `date_created` is also there.
     const { data: inquiry, error } = await supabase
       .from("inquiries")
       .insert([
@@ -23,11 +19,8 @@ router.post("/", async (req, res) => {
           name,
           email,
           phone,
-          eventType,
-          date: new Date().toLocaleDateString("en-GB"),
-          guests: parsedGuests,
           message,
-          status: "Pending",
+          status: "New",
         },
       ])
       .select()
