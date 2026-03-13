@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import PageHeader from "../components/common/PageHeader";
 import SectionTitle from "../components/common/SectionTitle";
 import Button from "../components/common/Button";
-import axios from "axios";
-import API_URL from "../config";
+import supabase from "../supabaseClient";
 import headerImage from "../assets/A3.png";
 import {
   FaMapMarkerAlt,
@@ -29,13 +28,18 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
+      const { error } = await supabase.from("inquiries").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          status: "New",
         },
-      };
+      ]);
 
-      await axios.post(`${API_URL}/api/inquiries`, formData, config);
+      if (error) throw error;
+
       alert("Thank you for your inquiry! We will get back to you shortly.");
       setFormData({
         name: "",
