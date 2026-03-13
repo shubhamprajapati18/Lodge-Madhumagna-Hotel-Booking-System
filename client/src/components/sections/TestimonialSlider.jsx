@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API_URL from "../../config";
 import SectionTitle from "../common/SectionTitle";
 import {
@@ -12,24 +12,27 @@ import "./TestimonialSlider.css";
 // Fetched from API
 
 const TestimonialSlider = () => {
-  const [testimonials, setTestimonials] = useState([]);
+  const [testimonials] = useState([
+    {
+      text: "Lodge Madhumagna is an exceptional choice for anyone seeking a comfortable stay without breaking the bank. The rooms are clean and provide a refreshing atmosphere. Highly recommended for budget travellers.",
+      rating: 5,
+      name: "Guest",
+      role: "Verified Guest",
+    },
+    {
+      text: "I had a great time at Lodge Madhumagna. The booking process was easy, the rooms were comfortable, and the staff were very friendly and helpful.",
+      rating: 5,
+      name: "Guest",
+      role: "Verified Guest",
+    },
+    {
+      text: "A clean and quiet place to stay. Perfect for relaxing after a long journey.",
+      rating: 5,
+      name: "Guest",
+      role: "Verified Guest",
+    }
+  ]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    import("axios").then((axios) => {
-      axios.default
-        .get(`${API_URL}/api/testimonials`)
-        .then((res) => {
-          setTestimonials(res.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          setLoading(false);
-        });
-    });
-  }, []);
 
   const nextTestimonial = () => {
     if (testimonials.length === 0) return;
@@ -43,7 +46,6 @@ const TestimonialSlider = () => {
     );
   };
 
-  if (loading) return null;
   if (testimonials.length === 0) return null;
 
   return (

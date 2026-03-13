@@ -31,21 +31,7 @@ const Sidebar = () => {
             <FaHome /> Dashboard
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/admin/rooms">
-            <FaBed /> Rooms
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/admin/gallery">
-            <FaImages /> Gallery
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/admin/testimonials">
-            <FaEnvelope /> Testimonials
-          </NavLink>
-        </li>
+
         <li>
           <NavLink to="/admin/inquiries">
             <FaEnvelope /> Inquiries
@@ -56,6 +42,10 @@ const Sidebar = () => {
         <button onClick={handleLogout} className="logout-btn">
           <FaSignOutAlt /> Logout
         </button>
+        <div style={{marginTop: '16px', fontSize: '0.7rem', color: '#aaa', textAlign: 'center', lineHeight: '1.6'}}>
+          <div>All rights reserved HQ8X</div>
+          <div>Developed by <strong style={{color: '#ccc'}}>HQ8X Technologies</strong></div>
+        </div>
       </div>
     </div>
   );

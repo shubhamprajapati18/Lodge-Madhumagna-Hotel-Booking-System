@@ -5,17 +5,12 @@ import "aos/dist/aos.css";
 
 // Placeholder Imports (Files to be created)
 import Home from "./pages/Home";
-import Weddings from "./pages/Weddings";
 import Accommodation from "./pages/Accommodation";
-import Pool from "./pages/Pool";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
-import RoomsManager from "./pages/admin/RoomsManager";
-import GalleryManager from "./pages/admin/GalleryManager";
-import TestimonialsManager from "./pages/admin/TestimonialsManager";
 import InquiriesManager from "./pages/admin/InquiriesManager";
 import NotFound from "./pages/NotFound";
 
@@ -53,9 +48,7 @@ function App() {
       {!isAdminRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/weddings-events" element={<Weddings />} />
         <Route path="/accommodation" element={<Accommodation />} />
-        <Route path="/swimming-pool-leisure" element={<Pool />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact-us" element={<Contact />} />
@@ -63,9 +56,6 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/rooms" element={<RoomsManager />} />
-        <Route path="/admin/gallery" element={<GalleryManager />} />
-        <Route path="/admin/testimonials" element={<TestimonialsManager />} />
         <Route path="/admin/inquiries" element={<InquiriesManager />} />
 
         <Route path="*" element={<NotFound />} />

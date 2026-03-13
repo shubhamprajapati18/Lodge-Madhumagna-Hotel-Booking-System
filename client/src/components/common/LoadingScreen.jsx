@@ -5,7 +5,7 @@ const LoadingScreen = () => {
   return (
     <div className="loading-screen">
       <div className="loading-content">
-        <h1 className="loading-logo">ELEVATE</h1>
+        <h1 className="loading-logo">Lodge Madhumagna</h1>
         <div className="loading-bar-container">
           <div className="loading-bar"></div>
         </div>

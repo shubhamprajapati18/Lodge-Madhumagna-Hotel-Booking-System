@@ -24,8 +24,8 @@ const RoomCard = ({ image, title, description, price, amenities }) => {
           <div className="icon-row">
             <FaWifi title="Free Wifi" />
             <FaCoffee title="Breakfast" />
-            <FaBath title="Luxury Bath" />
-            <FaTv title="Smart TV" />
+            <FaBath title="Attached Bath" />
+            <FaTv title="LED TV" />
           </div>
           <Button to="/contact-us" text="Book Now" type="primary" />
         </div>

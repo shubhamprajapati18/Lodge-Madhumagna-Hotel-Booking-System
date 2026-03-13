@@ -8,18 +8,16 @@ const HeroSection = () => {
     <section className="hero-section">
       <div className="hero-overlay"></div>
       <div className="hero-content" data-aos="fade-up" data-aos-duration="1500">
-        <span className="hero-welcome-text">WELCOME TO GORAKHPUR'S FINEST</span>
+        <span className="hero-welcome-text">Welcome to Lodge Madhumagna</span>
 
         <h1 className="hero-title">
-          Elevate Your Lifestyle,
+          Affordable Comfort,
           <br />
-          Celebrate Your Dreams
+          Trusted Hospitality Since 1996
         </h1>
 
         <p className="hero-desc">
-          The largest and most premium resort in Gorakhpur — a luxury wedding
-          venue with swimming pool, executive accommodation, and world-class
-          hospitality.
+          Experience clean, peaceful, and budget-friendly accommodation in Udala, Mayurbhanj. Perfect for travellers, families, and business guests looking for a relaxing stay.
         </p>
 
         <div className="hero-buttons">

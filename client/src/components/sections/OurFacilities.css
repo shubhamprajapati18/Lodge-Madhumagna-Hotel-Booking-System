@@ -1,0 +1,60 @@
+.facilities-section {
+  padding: 60px 0;
+}
+
+.facilities-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.facility-compact-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.facility-compact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(198, 167, 94, 0.3); /* gold light */
+}
+
+.facility-icon {
+  font-size: 1.5rem;
+  color: var(--color-emerald-dark);
+  margin-right: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(20, 77, 65, 0.05); /* emerald dark with opacity */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.facility-compact-card:hover .facility-icon {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+.facility-content h4 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
+.facility-content p {
+  font-size: 0.8rem;
+  color: var(--color-text-dark);
+  margin: 0;
+  line-height: 1.3;
+}

@@ -1,0 +1,174 @@
+/* ===== Admin Table Styles (shared) ===== */
+.rooms-table-container,
+.inquiries-table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  font-size: 0.9rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+}
+
+.data-table tr:hover {
+  background-color: #fafafa;
+}
+
+.data-table tr.new-inquiry {
+  background-color: #fff8e1;
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.new,
+.status.new {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.read,
+.status.read {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-badge.contacted,
+.status.contacted {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.pending,
+.status.pending {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-right: 4px;
+  transition: background 0.2s ease;
+}
+
+.action-btn.view { color: #0077cc; }
+.action-btn.view:hover { background: #e3f2fd; }
+.action-btn.edit { color: #28a745; }
+.action-btn.edit:hover { background: #d4edda; }
+.action-btn.delete { color: #dc3545; }
+.action-btn.delete:hover { background: #f8d7da; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 550px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+}
+
+.modal-header h2 {
+  font-size: 1.3rem;
+  color: #333;
+  margin: 0;
+}
+
+.modal-header .close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+}
+
+.inquiry-details p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.message-box {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}

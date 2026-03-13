@@ -19,8 +19,6 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    eventType: "Wedding",
-    guests: "",
     message: "",
   });
 
@@ -43,8 +41,6 @@ const Contact = () => {
         name: "",
         email: "",
         phone: "",
-        eventType: "Wedding",
-        guests: "",
         message: "",
       });
     } catch (err) {
@@ -75,8 +71,8 @@ const Contact = () => {
               <div>
                 <h4>Address</h4>
                 <p>
-                  Elevate Resort, Gorakhpur-Kushinagar Highway, Gorakhpur, Uttar
-                  Pradesh, 273001
+                  Lodge Madhumagna, Udala-Baripada Road (College Road), Udala,
+                  Mayurbhanj, Odisha – 757041, India
                 </p>
               </div>
             </div>
@@ -84,9 +80,14 @@ const Contact = () => {
             <div className="info-item">
               <FaPhoneAlt className="info-icon" />
               <div>
-                <h4>Phone</h4>
-                <p>+91 98765 43210</p>
-                <p>+91 12345 67890</p>
+                <h4>Phone / WhatsApp</h4>
+                <p>+91 8249310027</p>
+                <p>+91 9114560027</p>
+                <p>
+                  <a href="https://wa.me/918249310027" target="_blank" rel="noreferrer" style={{color: 'var(--color-emerald-dark)', textDecoration: 'none'}}>
+                    WhatsApp Us
+                  </a>
+                </p>
               </div>
             </div>
 
@@ -94,8 +95,7 @@ const Contact = () => {
               <FaEnvelope className="info-icon" />
               <div>
                 <h4>Email</h4>
-                <p>info@elevateresort.com</p>
-                <p>bookings@elevateresort.com</p>
+                <p>lodge.madhumagna@gmail.com</p>
               </div>
             </div>
 
@@ -103,13 +103,16 @@ const Contact = () => {
               <FaClock className="info-icon" />
               <div>
                 <h4>Working Hours</h4>
-                <p>Mon - Sun: 24 Hours Open</p>
+                <p>Open 24 Hours</p>
               </div>
             </div>
           </div>
 
           <div className="contact-form-wrapper" data-aos="fade-left">
             <h3>Send an Inquiry</h3>
+            <p style={{marginBottom: '20px', color: 'var(--color-text-dark)'}}>
+              Need a comfortable and affordable stay? Book your room today and experience the exceptional hospitality of Lodge Madhumagna.
+            </p>
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label>Name</label>
@@ -148,32 +151,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="form-group-row">
-                <div className="form-group">
-                  <label>Event Type</label>
-                  <select
-                    name="eventType"
-                    value={formData.eventType}
-                    onChange={handleChange}
-                  >
-                    <option value="Wedding">Wedding</option>
-                    <option value="Corporate">Corporate Event</option>
-                    <option value="Staycation">Staycation</option>
-                    <option value="Pool Party">Pool Party</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Guest Count</label>
-                  <input
-                    type="number"
-                    name="guests"
-                    value={formData.guests}
-                    onChange={handleChange}
-                    placeholder="Approx. Guests"
-                  />
-                </div>
-              </div>
 
               <div className="form-group">
                 <label>Message</label>
@@ -200,7 +177,7 @@ const Contact = () => {
       <section className="map-section">
         <iframe
           title="Google Map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113996.38676236968!2d83.3336496465451!3d26.763844620023447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991446a0c332489%3A0x1ff8192218e7c5d2!2sGorakhpur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1645434523456!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3688.0772740919325!2d86.5677222!3d21.5799021!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1c394d7ab3fafb%3A0xa49079e798fed043!2sLODGE%20MADHUMAGNA!5e0!3m2!1sen!2sin!4v1709462800000!5m2!1sen!2sin"
           width="100%"
           height="450"
           style={{ border: 0 }}

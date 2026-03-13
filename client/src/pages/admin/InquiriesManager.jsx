@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../../components/admin/Sidebar";
 import axios from "axios";
 import API_URL from "../../config";
-import "./RoomsManager.css"; // Reusing table styles
+import "./InquiriesManager.css";
 import { FaCheck, FaEye, FaEnvelope, FaTrash } from "react-icons/fa";
 
 const InquiriesManager = () => {
@@ -83,13 +83,24 @@ const InquiriesManager = () => {
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
-    // If it's already in DD/MM/YYYY format, passing it to new Date() causes Invalid Date.
     if (dateString.includes("/")) return dateString;
-
-    // Otherwise parse it (e.g., if it's an ISO timestamp from MongoDB legacy data)
     const date = new Date(dateString);
-    if (isNaN(date.getTime())) return dateString; // Fallback to raw string
-    return date.toLocaleDateString("en-GB"); // DD/MM/YYYY
+    if (isNaN(date.getTime())) return dateString;
+    return date.toLocaleDateString("en-GB");
+  };
+
+  const formatTime = (isoString) => {
+    if (!isoString) return "";
+    const date = new Date(isoString);
+    if (isNaN(date.getTime())) return "";
+    return date.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true });
+  };
+
+  const formatDateTime = (isoString) => {
+    if (!isoString) return "";
+    const date = new Date(isoString);
+    if (isNaN(date.getTime())) return "";
+    return date.toLocaleString("en-IN", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: true });
   };
 
   if (loading) return <div className="loading">Loading Inquiries...</div>;
@@ -106,9 +117,8 @@ const InquiriesManager = () => {
           <table className="data-table">
             <thead>
               <tr>
-                <th>Date</th>
+                <th>Date &amp; Time</th>
                 <th>Name</th>
-                <th>Type</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
@@ -119,9 +129,11 @@ const InquiriesManager = () => {
                   key={inquiry.id}
                   className={inquiry.status === "New" ? "new-inquiry" : ""}
                 >
-                  <td>{formatDate(inquiry.date)}</td>
+                  <td>
+                    <div>{formatDate(inquiry.date)}</div>
+                    <small style={{color: '#888'}}>{formatTime(inquiry.date_created)}</small>
+                  </td>
                   <td>{inquiry.name}</td>
-                  <td>{inquiry.eventType}</td>
                   <td>
                     <span
                       className={`status-badge ${inquiry.status.toLowerCase()}`}
@@ -187,13 +199,7 @@ const InquiriesManager = () => {
                   <strong>Phone:</strong> {selectedInquiry.phone}
                 </p>
                 <p>
-                  <strong>Event Type:</strong> {selectedInquiry.eventType}
-                </p>
-                <p>
-                  <strong>Guests:</strong> {selectedInquiry.guests}
-                </p>
-                <p>
-                  <strong>Date:</strong> {formatDate(selectedInquiry.date)}
+                  <strong>Submitted:</strong> {formatDateTime(selectedInquiry.date_created)}
                 </p>
                 <div className="message-box">
                   <strong>Message:</strong>

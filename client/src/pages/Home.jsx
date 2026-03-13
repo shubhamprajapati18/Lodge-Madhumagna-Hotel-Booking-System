@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "../components/sections/HeroSection";
 import WelcomeSection from "../components/sections/WelcomeSection";
 import WhyChooseUs from "../components/sections/WhyChooseUs";
+import OurFacilities from "../components/sections/OurFacilities";
 import TestimonialSlider from "../components/sections/TestimonialSlider";
 import "./Home.css";
 
@@ -11,6 +12,7 @@ const Home = () => {
       <HeroSection />
       <WelcomeSection />
       <WhyChooseUs />
+      <OurFacilities />
       <TestimonialSlider />
     </div>
   );

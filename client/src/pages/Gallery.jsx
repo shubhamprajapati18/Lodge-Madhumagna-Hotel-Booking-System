@@ -1,58 +1,56 @@
 import React, { useState, useEffect } from "react";
-import API_URL from "../config";
 import SectionTitle from "../components/common/SectionTitle";
 import PageHeader from "../components/common/PageHeader";
 import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import headerImage from "../assets/F03.png";
+import headerImage from "../assets/z6.png";
 import "./Gallery.css";
 
 // Images fetched from API
 
 const Gallery = () => {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [images] = useState([
+    { id: 1, src: "/src/assets/z7.png", category: "Accommodation", alt: "Double Bed A/C Room" },
+    { id: 2, src: "/src/assets/z6.png", category: "Accommodation", alt: "Single Bed A/C Room" },
+    { id: 3, src: "/src/assets/z5.png", category: "Accommodation", alt: "Double Bed Non-A/C Room" },
+    { id: 4, src: "/src/assets/z4.png", category: "Accommodation", alt: "Single Bed Non-A/C Room" },
+    { id: 5, src: "/src/assets/z3.png", category: "Weddings", alt: "Wedding Setup" },
+    { id: 6, src: "/src/assets/z2.png", category: "Events", alt: "Event Setup" },
+    { id: 7, src: "/src/assets/z1.png", category: "Accommodation", alt: "Lodge Exterior" },
+    { id: 8, src: "/src/assets/a1.png", category: "Accommodation", alt: "Reception Area" },
+    { id: 9, src: "/src/assets/hero.png", category: "Accommodation", alt: "Reception Area" },
+    { id: 10, src: "/src/assets/z8.png", category: "Accommodation", alt: "Reception Area" },
+    { id: 11, src: "/src/assets/z9.png", category: "Accommodation", alt: "Reception Area" },
+    { id: 12, src: "/src/assets/z10.png", category: "Accommodation", alt: "Reception Area" },
+
+  ]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  const filters = ["All", "Weddings", "Accommodation", "Pool", "Events"];
-
-  useEffect(() => {
-    import("axios").then((axios) => {
-      axios.default
-        .get(`${API_URL}/api/gallery`)
-        .then((res) => {
-          // Map API data to component format if needed, or just use as is
-          // API returns { _id, url, category, caption }
-          // Component expects { id, src, category, alt }
-          const formattedImages = res.data.map((img) => ({
-            id: img.id,
-            src: img.url,
-            category: img.category,
-            alt: img.caption || img.category,
-          }));
-          setImages(formattedImages);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          setLoading(false);
-        });
-    });
-  }, []);
+  const filters = ["All", "Accommodation", "Weddings", "Events"];
 
   const filteredImages =
     activeFilter === "All"
       ? images
       : images.filter((img) => img.category === activeFilter);
 
+  useEffect(() => {
+    if (selectedImageIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [selectedImageIndex]);
+
   const openLightbox = (index) => {
     setSelectedImageIndex(index);
-    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setSelectedImageIndex(null);
-    document.body.style.overflow = "auto";
   };
 
   const navigateImage = (direction) => {
@@ -75,17 +73,7 @@ const Gallery = () => {
         <div className="container">
           <SectionTitle title="Our Collection" centered={true} />
 
-          <div className="filter-tabs">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                className={`filter-btn ${activeFilter === filter ? "active" : ""}`}
-                onClick={() => setActiveFilter(filter)}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
+          
 
           <div className="gallery-grid">
             {filteredImages.map((image, index) => (

@@ -8,8 +8,8 @@ const Footer = () => {
     <footer className="footer">
       <div className="container footer-container">
         <div className="footer-col">
-          <h3>Elevate Resort</h3>
-          <p>The largest and most premium resort in Gorakhpur.</p>
+          <h3>Lodge Madhumagna</h3>
+          <p>Experience clean, peaceful, and budget-friendly accommodation in Udala, Mayurbhanj. </p>
         </div>
         <div className="footer-col">
           <h4>Quick Links</h4>
@@ -30,9 +30,9 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h4>Contact Us</h4>
-          <p>Gorakhpur, Uttar Pradesh</p>
-          <p>+91 98765 43210</p>
-          <p>info@elevateresort.com</p>
+          <p>College Road, Udala, Mayurbhanj,Odisha-757041.</p>
+          <p>+91-8249310027 , 9114560027</p>
+          <p>lodge.madhumagna@gmail.com</p>
         </div>
         <div className="footer-col">
           <h4>Follow Us</h4>
@@ -51,7 +51,10 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>
-          &copy; {new Date().getFullYear()} Elevate Resort. All rights reserved.
+          &copy; {new Date().getFullYear()} Lodge Madhumagna. All rights reserved. HQ8X
+        </p>
+        <p style={{fontSize: '0.75rem', opacity: 0.7, marginTop: '4px'}}>
+          Developed by <strong>HQ8X Technologies</strong>
         </p>
         <Link to="/admin/login" className="admin-link">
           Owner Login

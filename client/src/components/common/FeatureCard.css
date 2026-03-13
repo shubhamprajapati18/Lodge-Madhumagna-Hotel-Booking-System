@@ -1,6 +1,6 @@
 .feature-card {
   background-color: var(--color-white);
-  padding: var(--spacing-lg);
+  padding: 1.5rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: var(--shadow-sm);
@@ -12,15 +12,15 @@
 }
 
 .feature-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-gold-light);
 }
 
 .feature-icon {
-  font-size: 3rem;
+  font-size: 2.2rem;
   color: var(--color-emerald-dark);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0.8rem;
   transition: all var(--transition-medium);
 }
 
@@ -30,15 +30,17 @@
 }
 
 .feature-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
   color: var(--color-charcoal);
+  font-weight: 600;
 }
 
 .feature-card p {
   color: var(--color-text-dark);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Gold Gradient Overlay on Hover */

@@ -1,6 +1,5 @@
 import React from "react";
 import SectionTitle from "../common/SectionTitle";
-import FeatureCard from "../common/FeatureCard";
 import {
   FaSwimmingPool,
   FaLeaf,
@@ -14,33 +13,33 @@ const WhyChooseUs = () => {
   const features = [
     {
       icon: <FaGlassCheers />,
-      title: "Largest Wedding Lawn",
+      title: "Clean & Comfortable Rooms ",
       description:
-        "Grand venue with 2500+ guest capacity for your dream celebrations.",
+        "Well-maintained rooms(AC & Non-AC) designed for a relaxing stay",
     },
     {
       icon: <FaBed />,
-      title: "Luxury Accommodation",
+      title: "Affordable Pricing",
       description:
-        "Exquisite rooms and suites designed for ultimate comfort and relaxation.",
+        "Budget-friendly accommodation for all travellers",
     },
     {
       icon: <FaSwimmingPool />,
-      title: "Pristine Swimming Pool",
+      title: "Convenient Location",
       description:
-        "Best-in-class pool with dedicated kids zone and poolside dining.",
+        "Easy access from major roads and nearby attractions",
     },
     {
       icon: <FaLeaf />,
-      title: "Eco-Friendly",
+      title: "Friendly Hospitality",
       description:
-        "Sustainable practices including solar heating and rainwater harvesting.",
+        "Helpful and welcoming staff ready to assist you",
     },
     {
       icon: <FaMapMarkerAlt />,
-      title: "Prime Location",
+      title: "Peaceful Environment ",
       description:
-        "Peaceful yet accessible location, perfect for city escapes.",
+        "Ideal for rest after travel or work",
     },
   ];
 
@@ -52,14 +51,17 @@ const WhyChooseUs = () => {
           subtitle="Experience Excellence"
           centered={true}
         />
-        <div className="features-grid">
+        <div className="facilities-compact-grid">
           {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
+            <div className="facility-compact-card" key={index} data-aos="fade-up" data-aos-delay={index * 50}>
+              <div className="facility-icon">
+                {feature.icon}
+              </div>
+              <div className="facility-content">
+                <h4>{feature.title}</h4>
+                <p>{feature.description}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

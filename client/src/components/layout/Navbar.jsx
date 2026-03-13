@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css"; // Will create CSS later
 
+import logo1 from "../../assets/logo1.png";
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,7 +25,8 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo">
-          <h1>ELEVATE RESORT</h1>
+          <img src={logo1} alt="Lodge Madhumagna Logo" className="navbar-brand-logo" />
+          <h1>LODGE MADHUMAGNA</h1>
         </Link>
         <ul className={`nav-links ${mobileMenuOpen ? "active" : ""}`}>
           <li>
@@ -31,14 +34,7 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/weddings-events"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Weddings & Events
-            </NavLink>
-          </li>
+
           <li>
             <NavLink
               to="/accommodation"
@@ -47,14 +43,7 @@ const Navbar = () => {
               Accommodation
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/swimming-pool-leisure"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Pool & Leisure
-            </NavLink>
-          </li>
+
           <li>
             <NavLink to="/gallery" onClick={() => setMobileMenuOpen(false)}>
               Gallery
