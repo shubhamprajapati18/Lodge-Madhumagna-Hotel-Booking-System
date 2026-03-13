@@ -8,11 +8,23 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
-app.use("/uploads", express.static("uploads"));
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.CLIENT_URL, // Set this in Vercel env vars to your frontend URL
+].filter(Boolean);
 
-// No local db init script right now, database handles requests via `supabaseClient` directly on routes.
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true,
+}));
+app.use(express.json());
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
@@ -24,7 +36,7 @@ app.use("/api/content", require("./routes/content"));
 app.use("/api/upload", require("./routes/upload"));
 
 app.get("/", (req, res) => {
-  res.send("Elevate Resort API is running");
+  res.send("Lodge Madhumagna API is running ✅");
 });
 
 app.listen(PORT, () => {

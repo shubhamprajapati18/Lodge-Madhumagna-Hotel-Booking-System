@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import LoadingScreen from "./components/common/LoadingScreen";
+import PrivateRoute from "./components/common/PrivateRoute";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -54,9 +55,10 @@ function App() {
         <Route path="/contact-us" element={<Contact />} />
 
         {/* Admin Routes */}
+        <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/inquiries" element={<InquiriesManager />} />
+        <Route path="/admin/dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
+        <Route path="/admin/inquiries" element={<PrivateRoute><InquiriesManager /></PrivateRoute>} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
